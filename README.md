@@ -1,8 +1,8 @@
 # QUICK START GUIDE
 
 ## ARDUINO IDE DEPENDENCIES
-FED3 by Lex Kravitz : 1.16.3
-CapacitiveSensor by Paul Bagder : 0.5.1
+FED3 by Lex Kravitz : 1.16.3<br>
+CapacitiveSensor by Paul Bagder : 0.5.1<br>
 
 ## NeuroHab_firm
 <b>NeuroHab_Lib</b> goes in your arduino library folder. Probably: "C:\Users\username\Documents\Arduino\libraries\PLACE_HERE"
