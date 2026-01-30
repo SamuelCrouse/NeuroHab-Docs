@@ -61,6 +61,40 @@ Change VALVE_1 to VALVE_2 or VALVE_3 to flush each line completely. You must fla
 #### You must reflash the Arduino with your desired code to resume experiment behavior.
 
 
+## Lickport Water Delivery Quantity Calibration
+One of the main limitations of the NeuroHab is the inability to communicate quantities between the Arduino MEGA controller and the ESP32 logger. This is overcome by hard coding the liquid delivery amount within:<br>
+
+      NeuroHab-ESP_logging at the line
+      float WD_QTY=0.006667 * 0.65;  // ml per WD
+
+      and
+
+      libraries/NeuroHab_lib/NeuroHab_Control.h at the line
+      float lickTime = (250 * 0.65) - PULSE_SEPAR_DELAY_MS;	// How long the lickport valve is open before closing. Pulse delay to account for pulse time while valve is open.
+
+The lickTime variable dictates how long the port stays open upon activation. IE greater times deliver more liquid and short times less.<br>
+WD_QTY is the quantity that is recorded in the logging system. 0.65 is the scalar used to adjust delivery amount without ruining calibration approximately. IE at 250 ms 0.006667 ml is delivered and we scale the delivery time and amount by 0.65 to reduce the delivery amount without having to recalibrate delivery.<br>
+
+However, if you need to change the delivery amount I recommend recalibration and this is the method.
+
+1. Set the lickTime to the estimated time delivery amount. (100ms is generally about right to get a medium sized droplet delivered.)
+2. Use a micropipette to measure the size of the droplet. (You may also program or manually deliver 10-50-100-X droplets into a container to have a greater amount to more easily measure. Remember to divide by the total number to get the average delivery size.)
+3. If you found that your delivery amount is 0.002ml per delivery, replace <b>float WD_QTY=0.006667 * 0.65;</b> with <b>float WD_QTY=0.002;</b>
+4. The scalar 0.65 is not mandatory and may be removed on recalibration, but adding your scalar or replacing with 1.0 is a good way to easily change delivery amount without recalibration.
+5. After recalibration with a 0.002ml delivery amount your final code lines may look like this:
+
+Example:
+
+      NeuroHab-ESP_logging at the line
+      float WD_QTY=0.002 * 1.0;  // ml per WD
+
+      and
+
+      libraries/NeuroHab_lib/NeuroHab_Control.h at the line
+      float lickTime = (85 * 1.0) - PULSE_SEPAR_DELAY_MS;	// How long the lickport valve is open before closing. Pulse delay to account for pulse time while valve is open.
+
+#### PULSE_SEPAR_DELAY_MS should not be removed as that delay is added during logging and removing it here will actually inflate the time is open. Similarly, the minimum time a valve may be open is the PULSE_SEPAR_DELAY_MS which by default is 60ms. Which also caps the logging at ~16HZ. I do not recommend changing PULSE_SEPAR_DELAY_MS so do so at your own discretion.
+
 # Hardware Installation
 ## Lickport Installation
 Each of 3 lickports comes with the port and magnetic housing. The housing inner diameter is ~21mm and the holes are sized for 3mm screws.<br>
