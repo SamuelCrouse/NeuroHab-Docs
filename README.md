@@ -20,8 +20,8 @@ Files labeled -ESP will use <b>ESP32 Dev Module</b> <br>
 Files labeled -MEGA will use <b>Arduino Mega or Mega 2560</b> <br>
 
 ## Flashing ESP32 Time Clock
-Upload NeuroHab-ESP_Logging_Setclock to the Core to set the clock on the LCD screen. You MUST now reflash with NeuroHab-ESP_Logging
-After selecting upload if the board does not automatically connect you made need to hold the boot button on the board. *The small button to the right of the micro-usb connection cable.
+Upload NeuroHab-ESP_Logging_Setclock to the Core to set the clock on the LCD screen. You MUST now reflash with NeuroHab-ESP_Logging.<br>
+After selecting upload if the board does not automatically connect you made need to hold the boot button on the board. *The small button to the right of the micro-usb connection cable.<b>
 
 ## Flashing Arduino Mega 2560
 Select the Arduino Mega 2560 COM6 (or COMX) from the drop down and select upload. 
