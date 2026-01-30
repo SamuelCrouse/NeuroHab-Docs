@@ -100,7 +100,7 @@ Example:
       libraries/NeuroHab_lib/NeuroHab_Control.h at the line
       float lickTime = (85 * 1.0) - PULSE_SEPAR_DELAY_MS;	// How long the lickport valve is open before closing. Pulse delay to account for pulse time while valve is open.
 
-#### PULSE_SEPAR_DELAY_MS should not be removed as that delay is added during logging and removing it here will actually inflate the time is open. Similarly, the minimum time a valve may be open is the PULSE_SEPAR_DELAY_MS which by default is 60ms. Which also caps the logging at ~16HZ. I do not recommend changing PULSE_SEPAR_DELAY_MS so do so at your own discretion.<br>
+#### PULSE_SEPAR_DELAY_MS should not be removed as that delay is added during logging and removing it here will actually inflate the time the valves are open. Similarly, the minimum time a valve may be open is the PULSE_SEPAR_DELAY_MS which by default is 60ms. This also caps the logging at ~16HZ. I do not recommend changing PULSE_SEPAR_DELAY_MS at reducing times may cause events to be missed.<br>
 <br>
 
 
