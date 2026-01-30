@@ -53,3 +53,4 @@ By default this program will cycle open and closing each valve individually for 
       }
 
 Change VALVE_1 to VALVE_2 or VALVE_3 to flush each line completely. You must flash the Arduino each time you change the valve number.
+#### You must reflash the Arduino with your desired code to resume experiment behavior.
