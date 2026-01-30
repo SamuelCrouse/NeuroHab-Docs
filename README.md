@@ -3,6 +3,8 @@
 ## ARDUINO IDE DEPENDENCIES
 FED3 by Lex Kravitz : 1.16.3<br>
 CapacitiveSensor by Paul Bagder : 0.5.1<br>
+<br>
+
 
 # NeuroHab Basic Setup and Use
 ## NeuroHab_firm
@@ -15,20 +17,24 @@ NeuroHab-ESP_Logging_Setclock <br>
 NeuroHab-MEGA_Example <br>
 NeuroHab-MEGA_basic_lick <br>
 NeuroHab-MEGA_flush_lines <br>
+<br>
 
 
 ## Arduino IDE Board Selection
 Files labeled -ESP will use <b>ESP32 Dev Module</b> <br>
 Files labeled -MEGA will use <b>Arduino Mega or Mega 2560</b> <br>
+<br>
 
 
 ## Flashing ESP32 Time Clock
 Upload NeuroHab-ESP_Logging_Setclock to the Core to set the clock on the LCD screen. You MUST now reflash with NeuroHab-ESP_Logging.<br>
-After selecting upload if the board does not automatically connect you made need to hold the boot button on the board. *The small button to the right of the micro-usb connection cable.<b>
+After selecting upload if the board does not automatically connect you made need to hold the boot button on the board. *The small button to the right of the micro-usb connection cable.<b><br>
+<br>
 
 
 ## Flashing Arduino Mega 2560
-Select the Arduino Mega 2560 COM6 (or COMX) from the drop down and select upload. 
+Select the Arduino Mega 2560 COM6 (or COMX) from the drop down and select upload.<br>
+<br>
 
 
 ## Removing Air Bubbles from Lines (flush lines)
@@ -58,7 +64,8 @@ By default this program will cycle open and closing each valve individually for 
       }
 
 Change VALVE_1 to VALVE_2 or VALVE_3 to flush each line completely. You must flash the Arduino each time you change the valve number.
-#### You must reflash the Arduino with your desired code to resume experiment behavior.
+#### You must reflash the Arduino with your desired code to resume experiment behavior.<br>
+<br>
 
 
 ## Lickport Water Delivery Quantity Calibration
@@ -93,9 +100,13 @@ Example:
       libraries/NeuroHab_lib/NeuroHab_Control.h at the line
       float lickTime = (85 * 1.0) - PULSE_SEPAR_DELAY_MS;	// How long the lickport valve is open before closing. Pulse delay to account for pulse time while valve is open.
 
-#### PULSE_SEPAR_DELAY_MS should not be removed as that delay is added during logging and removing it here will actually inflate the time is open. Similarly, the minimum time a valve may be open is the PULSE_SEPAR_DELAY_MS which by default is 60ms. Which also caps the logging at ~16HZ. I do not recommend changing PULSE_SEPAR_DELAY_MS so do so at your own discretion.
+#### PULSE_SEPAR_DELAY_MS should not be removed as that delay is added during logging and removing it here will actually inflate the time is open. Similarly, the minimum time a valve may be open is the PULSE_SEPAR_DELAY_MS which by default is 60ms. Which also caps the logging at ~16HZ. I do not recommend changing PULSE_SEPAR_DELAY_MS so do so at your own discretion.<br>
+<br>
+
 
 # Hardware Installation
 ## Lickport Installation
 Each of 3 lickports comes with the port and magnetic housing. The housing inner diameter is ~21mm and the holes are sized for 3mm screws.<br>
-To install I recommend placing the magnetic housing on the wall of your homecage and marking both mounting holes and the center 21mm hole with a sharpie. Then, use a 3.5mm drill bit to drill the mounting holes and a 20mm saw bit or similar to drill the center hole. Use the provided screws to mount the lickport housing on the wall. The lickport itself should now easily fit through the wall and allow liquid delivery into the homecage on activation.
+To install I recommend placing the magnetic housing on the wall of your homecage and marking both mounting holes and the center 21mm hole with a sharpie. Then, use a 3.5mm drill bit to drill the mounting holes and a 20mm saw bit or similar to drill the center hole. Use the provided screws to mount the lickport housing on the wall. The lickport itself should now easily fit through the wall and allow liquid delivery into the homecage on activation.<br>
+<br>
+
