@@ -24,6 +24,9 @@ NeuroHab-MEGA_flush_lines <br><br>
 Files labeled -ESP will use <b>ESP32 Dev Module</b> <br>
 Files labeled -MEGA will use <b>Arduino Mega or Mega 2560</b> <br><br>
 
+## Flashing ESP32
+Ensure UART CP210 drivers on installed. Via CP210x VCP Windows Installer. <br><br>
+
 
 ## Flashing ESP32 Time Clock
 Upload NeuroHab-ESP_Logging_Setclock to the Core to set the clock on the LCD screen. You MUST now reflash with NeuroHab-ESP_Logging.<br>
@@ -65,6 +68,7 @@ Change VALVE_1 to VALVE_2 or VALVE_3 to flush each line completely. You must fla
 
 
 ## Lickport Water Delivery Quantity Calibration
+This code is found within "NeuroHab/NeuroHab_firm/NeuroHab_Lib/NeuroHab_Control.h" or locally "C:\Users\username\Documents\Arduino\libraries\NeuroHab_Lib\NeuroHab_Control.h"
 One of the main limitations of the NeuroHab is the inability to communicate quantities between the Arduino MEGA controller and the ESP32 logger. This is overcome by hard coding the liquid delivery amount within:<br>
 
       NeuroHab-ESP_logging at the line
@@ -97,6 +101,12 @@ Example:
       float lickTime = (85 * 1.0) - PULSE_SEPAR_DELAY_MS;	// How long the lickport valve is open before closing. Pulse delay to account for pulse time while valve is open.
 
 #### PULSE_SEPAR_DELAY_MS should not be removed as that delay is added during logging and removing it here will actually inflate the time the valves are open. Similarly, the minimum time a valve may be open is the PULSE_SEPAR_DELAY_MS which by default is 60ms. This also caps the logging at ~16HZ. I do not recommend changing PULSE_SEPAR_DELAY_MS at reducing times may cause events to be missed.<br><br>
+
+
+## Lickports Activating Multiple Times? Reduce Sensitivity Here.
+This code is found within "NeuroHab/NeuroHab_firm/NeuroHab_Lib/NeuroHab_Control.h" or locally "C:\Users\username\Documents\Arduino\libraries\NeuroHab_Lib\NeuroHab_Control.h"
+<img width="794" height="14" alt="image" src="https://github.com/user-attachments/assets/8f6bbea2-b444-4bdc-be26-858d040545fd" /> <br>
+At 20 this is quite sensitive. 25 is good, and 30 may be too restrictive for mice, but it works well when manually activating it with a finger. Please test this value in your own setup.
 
 
 # Hardware Installation
