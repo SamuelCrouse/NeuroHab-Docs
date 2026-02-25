@@ -4,8 +4,8 @@ Check for solutions here and if this README does not solve your problem email me
 
 ## ARDUINO IDE DEPENDENCIES
 FED3 by Lex Kravitz : 1.16.3<br>
-CapacitiveSensor by Paul Bagder : 0.5.1<br><br>
-
+CapacitiveSensor by Paul Bagder : 0.5.1<br>
+UART CP210 drivers on installed. Via CP210x VCP Windows Installer. This allows the ESP32 to connect properly via USB. <br><br>
 
 # NeuroHab Basic Setup and Use
 ## NeuroHab_firm
